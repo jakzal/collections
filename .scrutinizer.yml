@@ -4,10 +4,6 @@ build:
   environment:
     php:
       version: 7.2
-  tests:
-    override:
-    - make test
-  project_setup:
   nodes:
     coverage:
       tests:
@@ -16,6 +12,11 @@ build:
           coverage:
             file: build/coverage.xml
             format: clover
+    analysis:
+      tests:
+        override:
+        - php-scrutinizer-run
+
 filter:
   paths: [src/*]
 
