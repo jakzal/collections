@@ -22,10 +22,10 @@ final class LazyCollection implements Collection
     public function merge(Collection $other): Collection
     {
         return self::createFromClosure(function () use ($other) {
-            foreach ($this->elements as $e) {
+            foreach ($this as $e) {
                 yield $e;
             }
-            foreach ($other->elements as $e) {
+            foreach ($other as $e) {
                 yield $e;
             }
         });
@@ -34,7 +34,7 @@ final class LazyCollection implements Collection
     public function filter(callable $f): Collection
     {
         return self::createFromClosure(function () use ($f) {
-            foreach ($this->elements as $e) {
+            foreach ($this as $e) {
                 if ($f($e)) {
                     yield $e;
                 }
@@ -45,7 +45,7 @@ final class LazyCollection implements Collection
     public function map(callable $f): Collection
     {
         return self::createFromClosure(function () use ($f) {
-            foreach ($this->elements as $e) {
+            foreach ($this as $e) {
                 yield $f($e);
             }
         });
@@ -59,7 +59,7 @@ final class LazyCollection implements Collection
      */
     public function reduce($initial, callable $f)
     {
-        return \array_reduce(\iterator_to_array($this->elements), $f, $initial);
+        return \array_reduce(\iterator_to_array($this), $f, $initial);
     }
 
     private static function createFromClosure(Closure $f): Collection
