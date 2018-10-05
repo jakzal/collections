@@ -1,0 +1,13 @@
+language: php
+matrix:
+  include:
+  - php: 7.1
+  - php: 7.2
+    env: deps=low
+  fast_finish: true
+before_install:
+- phpenv config-rm xdebug.ini
+install:
+- if [[ $deps = low ]]; then make update-min; else make install; fi
+script:
+- if [[ $deps = low ]]; then make test-min; else make test; fi

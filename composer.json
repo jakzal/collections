@@ -1,0 +1,33 @@
+{
+    "name": "zalas/collections",
+    "description": "A tiny collection library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Zalas",
+            "email": "jakub@zalas.pl"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zalas\\Collection\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zalas\\Collection\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
