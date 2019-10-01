@@ -5,7 +5,32 @@
 
 A tiny collection library enabling `array_*` like operations on generators and other traversables.
 
-## Example
+## Collection interface
+
+```php
+interface Collection extends IteratorAggregate
+{
+    public function merge(Collection $other): Collection;
+
+    public function filter(callable $f): Collection;
+
+    public function map(callable $f): Collection;
+
+    /**
+     * @param mixed $initial
+     * @param callable $f
+     *
+     * @return mixed
+     */
+    public function reduce($initial, callable $f);
+}
+```
+
+## Collection implementations
+
+### LazyCollection
+
+The lazy collection implementation postpones evaluation of elements until it's necessary.
 
 ```php
 use Zalas\Collection\LazyCollection;
