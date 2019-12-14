@@ -35,6 +35,17 @@ The lazy collection implementation postpones evaluation of elements until it's n
 ```php
 use Zalas\Collection\LazyCollection;
 
+$c = (new LazyCollection(new \ArrayIterator([1, 2, 3, 4])))
+    ->filter(fn (int $e) => 0 === $e % 2)
+    ->map(fn (int $e) => $e * 2)
+;
+```
+
+In legacy PHP versions:
+
+```php
+use Zalas\Collection\LazyCollection;
+
 $c = (new LazyCollection(new \ArrayIterator([1, 2, 3, 4)))
     ->filter(function (int $e) {
         return 0 === $e % 2;
