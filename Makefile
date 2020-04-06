@@ -65,7 +65,7 @@ tools/php-cs-fixer:
 	curl -Ls http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/infection: tools/infection.pubkey
-	curl -Ls https://github.com/infection/infection/releases/download/0.14.1/infection.phar -o tools/infection && chmod +x tools/infection
+	curl -Ls https://github.com/infection/infection/releases/download/0.16.1/infection.phar -o tools/infection && chmod +x tools/infection
 
 tools/infection.pubkey:
-	curl -Ls https://github.com/infection/infection/releases/download/0.14.1/infection.phar.pubkey -o tools/infection.pubkey
+	curl -Ls https://github.com/infection/infection/releases/download/0.16.1/infection.phar.pubkey -o tools/infection.pubkey
